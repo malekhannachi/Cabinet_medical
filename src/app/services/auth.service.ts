@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../models/user';
 
 @Injectable({
@@ -29,4 +30,36 @@ export class AuthService {
     }
   }
  
+  isLoggedInAdmin(){
+
+    let token = localStorage.getItem("myToken");
+
+    if (token) {
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      if(decodedToken.data.role =="admin"){
+        return true
+      }else
+      {return false ;}
+    } else {
+      return false;
+    }
+  }
+  isLoggedInPatient(){
+
+    let token = localStorage.getItem("myToken");
+
+    if (token) {
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      if(decodedToken.data.role =="patient"){
+        return true
+      }else
+      {return false ;}
+    } else {
+      return false;
+    }
+  }
+
+
 }
