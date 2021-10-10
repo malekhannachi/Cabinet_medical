@@ -15,6 +15,8 @@ import { Page404Component } from './components/public/page404/page404.component'
 import { HeaderComponent } from './components/public/shared/header/header.component';
 import { TopbarComponent } from './components/private/shared/topbar/topbar.component';
 import { SidebarComponent } from './components/private/shared/sidebar/sidebar.component';
+import { DashboardComponent } from './components/private/shared/dashboard/dashboard.component';
+import { ListPatientComponent } from './components/private/admin/patient/list-patient/list-patient.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SidebarComponent } from './components/private/shared/sidebar/sidebar.co
        Page404Component,
        HeaderComponent,
        TopbarComponent,
-       SidebarComponent
+       SidebarComponent,
+       DashboardComponent,
+       ListPatientComponent
   ],
   imports: [
     BrowserModule,
