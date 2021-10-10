@@ -1,13 +1,21 @@
 <app-header></app-header>
-<form class="form-signin">
+<form class="form-signin" [formGroup]="addUserForm" (ngSubmit)="addUser()">
     <h2 class="form-signin-heading">Se Connecter :</h2>
   
     <label for="mail" class="sr-only">Email</label>
-    <input type="text" id="mail" name="mail" ngModel class="form-control" placeholder="Email" required>
-    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="text" id="mail" name="mail" ngModel class="form-control" placeholder="Email" formControlName="email">
+    <div *ngIf="email?.touched && email?.invalid">
+      <small *ngIf="email?.errors?.required" class="text-danger">email est vide<br></small>
+
+    </div>
     <br>
-    <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required>
-    <label for="phoneNumber" class="sr-only">Numéro de télephone</label>
+    <input type="password" id="inputPassword" name="password" class="form-control"
+     placeholder="Password" formControlName="password">
+     <div *ngIf="password?.touched && password?.invalid">
+      <small *ngIf="password?.errors?.required" class="text-danger">mot de passe est vide<br></small>
+   
+    </div>
     <br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Se Connecter</button>
+    <button class="btn btn-lg btn-primary btn-block"  type="submit" >Se Connecter</button>
+    <!--[disabled]="addUserForm.invalid"-->
   </form>

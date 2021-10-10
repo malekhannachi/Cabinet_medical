@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +13,8 @@ import { RegisterComponent } from './components/public/register/register.compone
 import { FooterComponent } from './components/public/shared/footer/footer.component';
 import { Page404Component } from './components/public/page404/page404.component';
 import { HeaderComponent } from './components/public/shared/header/header.component';
+import { TopbarComponent } from './components/private/shared/topbar/topbar.component';
+import { SidebarComponent } from './components/private/shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,18 @@ import { HeaderComponent } from './components/public/shared/header/header.compon
   
     FooterComponent,
        Page404Component,
-       HeaderComponent
+       HeaderComponent,
+       TopbarComponent,
+       SidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+     FormsModule ,
+      ReactiveFormsModule,
+      HttpClientModule, ToastNoAnimationModule.forRoot(),
+    
+      
   ],
   providers: [],
   bootstrap: [AppComponent]
