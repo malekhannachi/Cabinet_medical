@@ -10,10 +10,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private router :Router,private authService:AuthService ) { }
-
+  isAdmin : Boolean = false;
+  isPatient : Boolean = false;
   isLoggedIn!: Boolean;
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
+    this.isAdmin = this.authService.isLoggedInAdmin();
+    this.isPatient = this.authService.isLoggedInPatient();
   }
 
   logout()

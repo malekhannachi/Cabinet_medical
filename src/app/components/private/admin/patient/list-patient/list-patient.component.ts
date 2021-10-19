@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListPatientComponent implements OnInit {
   users:any[]=[];
-  constructor(private userSerivce:UserService) { }
+  constructor(private userSerivce:UserService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.userSerivce.getAllUsers().subscribe(
@@ -21,5 +22,29 @@ export class ListPatientComponent implements OnInit {
       }
     )
   }
+
+
+  delete(category:any)
+  {
+   
+    let index = this.users.indexOf(category);
+    this.users.splice(index, 1);
+    this.userSerivce.deleteUser(category.id).subscribe(
+      res=>{
+        this.toastr.error('', 'Patient est Supprimé');
+      },
+      err =>{
+        console.log(err);
+      }
+    )
+    
+  }
+
+
+
+
+
+
+
 
 }

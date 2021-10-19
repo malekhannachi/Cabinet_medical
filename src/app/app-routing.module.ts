@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddOrdComponent } from './components/private/admin/ordonnance/add-ord/add-ord.component';
+import { ListOrdComponent } from './components/private/admin/ordonnance/list-ord/list-ord.component';
+import { UpdateOrdComponent } from './components/private/admin/ordonnance/update-ord/update-ord.component';
 import { ListPatientComponent } from './components/private/admin/patient/list-patient/list-patient.component';
 import { DashboardComponent } from './components/private/shared/dashboard/dashboard.component';
 import { HomeComponent } from './components/public/home/home.component';
@@ -16,6 +19,12 @@ const routes: Routes = [
  {path:"dashboard",component:DashboardComponent,
  canActivate:[AuthGuard]},
  {path:"list-patient",component:ListPatientComponent,
+ canActivate:[AdminGuard]},
+ {path:"list-ord",component:ListOrdComponent,
+ canActivate:[AdminGuard]},
+ {path:"add-ord",component:AddOrdComponent,
+ canActivate:[AdminGuard]},
+ {path:"update-ord/:id",component:UpdateOrdComponent,
  canActivate:[AdminGuard]},
   {path:"**",component:Page404Component},
 ]

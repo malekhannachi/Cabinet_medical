@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       let token = res.token;
 
       localStorage.setItem("myToken", token);
-      this.toastr.success('', 'connexion réussie');
+     
         this.router.navigate(['/']);
      
     },

@@ -9,7 +9,8 @@
          médicales, intégrant la gestion financière et un agenda 
         complet avec gestionnaire de rendez-vous et fonction 
         de secrétariat avancé intégrée.</p>
-      <a  class="btn btn-primary" routerLink=  "/login">Se connecter</a>
+      <a  *ngIf="!isLoggedIn" class="btn btn-primary" routerLink="/login">Se connecter</a>
+      <a *ngIf="isLoggedIn" class="btn btn-primary" routerLink="/">Welcome back</a>
     </div>
   </section><!-- End Hero -->
   

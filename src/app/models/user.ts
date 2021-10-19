@@ -7,7 +7,8 @@ export class User {
             public lastname?: String,
             public email?: String,
             public password?: String,
-            public accountState?: String
+            public accountState?: String,
+           
         ) { }
     
 }

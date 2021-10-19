@@ -17,6 +17,9 @@ import { TopbarComponent } from './components/private/shared/topbar/topbar.compo
 import { SidebarComponent } from './components/private/shared/sidebar/sidebar.component';
 import { DashboardComponent } from './components/private/shared/dashboard/dashboard.component';
 import { ListPatientComponent } from './components/private/admin/patient/list-patient/list-patient.component';
+import { ListOrdComponent } from './components/private/admin/ordonnance/list-ord/list-ord.component';
+import { AddOrdComponent } from './components/private/admin/ordonnance/add-ord/add-ord.component';
+import { UpdateOrdComponent } from './components/private/admin/ordonnance/update-ord/update-ord.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ListPatientComponent } from './components/private/admin/patient/list-pa
        TopbarComponent,
        SidebarComponent,
        DashboardComponent,
-       ListPatientComponent
+       ListPatientComponent,
+       ListOrdComponent,
+       AddOrdComponent,
+       UpdateOrdComponent
   ],
   imports: [
     BrowserModule,

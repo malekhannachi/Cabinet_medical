@@ -17,17 +17,21 @@
           <a class="nav-link" [routerLink]="['/']">Contact</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isLoggedIn" class="nav-link" [routerLink]="['/dashboard']">Mon Compte</a>
+          <a *ngIf="isPatient" class="nav-link" [routerLink]="['/dashboard']"><i class="far fa-user"></i> Mon Compte</a>
         </li>
 
         <li class="nav-item">
-          <a *ngIf="!isLoggedIn" class="btn btn-primary btn-sm mx-3" href="" [routerLink]="['/login']">Se connecter</a>
+          <a   *ngIf="isAdmin"  class="nav-link" [routerLink]="['/dashboard']">  <i class="fas fa-user-cog"></i> Espace Admin</a>
+        </li>
+      
+        <li class="nav-item">
+          <a *ngIf="!isLoggedIn"  class="btn btn-primary btn-sm mx-3" href="" [routerLink]="['/login']">Se connecter</a>
         </li>
         <li *ngIf="!isLoggedIn" class="nav-item">
           <a class="btn btn-light btn-sm mx-3" [routerLink]="['/register']">S'inscrire</a>
         </li>
-        <li class="nav-item">
-          <a *ngIf="isLoggedIn" class="btn btn-danger btn-sm mx-3" (click)="logout()">Se déconnecter</a>
+        <li class="nav-item" >
+          <a *ngIf="isLoggedIn" class="btn btn-danger btn-sm mx-3" id="logout" (click)="logout()">Se déconnecter</a>
         </li>
        
       </ul>
